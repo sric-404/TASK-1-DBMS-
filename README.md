@@ -70,3 +70,205 @@ Payment Management
 Shipment Management
 Review Management
 Business Reporting
+
+6. Entity Identification:
+   
+| Entity | Primary Key | Important Attributes |
+|---------|-------------|----------------------|
+| Customer | Customer_ID | Name, Email, Mobile_Number, Address, Registration_Date |
+| Category | Category_ID | Category_Name, Description |
+| Product | Product_ID | Product_Name, Price, Stock_Quantity |
+| Supplier | Supplier_ID | Supplier_Name, Contact_Information |
+| Orders | Order_ID | Customer_ID, Order_Date, Total_Amount, Order_Status |
+| Order_Details | Order_Detail_ID | Order_ID, Product_ID, Quantity, Unit_Price |
+| Payment | Payment_ID | Order_ID, Payment_Method, Payment_Date, Payment_Status |
+| Shipment | Shipment_ID | Order_ID, Delivery_Address, Shipment_Date, Delivery_Status |
+| Review | Review_ID | Customer_ID, Product_ID, Rating, Comments |
+
+7. Relationship Identification
+One-to-One Relationships
+| Entity | Entity |
+|---------|--------|
+| Orders | Payment |
+| Orders | Shipment |
+
+One-to-Many Relationships
+| Parent | Child |
+|---------|-------|
+| Customer | Orders |
+| Category | Product |
+| Supplier | Product |
+| Orders | Order_Details |
+| Customer | Review |
+| Product | Review |
+
+Many-to-Many Relationships
+| Entity | Entity | Resolved By |
+|---------|--------|-------------|
+| Orders | Product | Order_Details |
+
+8. Primary keys:
+
+Customer
+---------
+Customer_ID (PK)
+Name
+Email
+Mobile_Number
+Address
+Registration_Date
+
+Orders
+---------
+Order_ID (PK)
+Customer_ID (FK)
+Order_Date
+Total_Amount
+Order_Status
+
+Order_Details
+--------------
+Order_Detail_ID (PK)
+Order_ID (FK)
+Product_ID (FK)
+Quantity
+Unit_Price
+
+Product
+---------
+Product_ID (PK)
+Product_Name
+Price
+Stock_Quantity
+Category_ID (FK)
+Supplier_ID (FK)
+
+Category
+----------
+Category_ID (PK)
+Category_Name
+Description
+
+Supplier
+----------
+Supplier_ID (PK)
+Supplier_Name
+Contact_Information
+
+Payment
+---------
+Payment_ID (PK)
+Order_ID (FK)
+Payment_Method
+Payment_Date
+Payment_Status
+
+Shipment
+----------
+Shipment_ID (PK)
+Order_ID (FK)
+Delivery_Address
+Shipment_Date
+Delivery_Status
+
+Review
+---------
+Review_ID (PK)
+Customer_ID (FK)
+Product_ID (FK)
+Rating
+Comments
+
+9. Attributes:
+
+CUSTOMER
+-------------------------
+Customer_ID (PK)
+Name
+Email
+Mobile_Number
+Address
+Registration_Date
+        |
+        | Places
+        | (1:M)
+        |
+ORDERS
+-------------------------
+Order_ID (PK)
+Order_Date
+Total_Amount
+Order_Status
+Customer_ID (FK)
+        |
+        | Contains
+        | (1:M)
+        |
+ORDER_DETAILS
+-------------------------
+Order_Detail_ID (PK)
+Order_ID (FK)
+Product_ID (FK)
+Quantity
+Unit_Price
+        |
+        | References
+        | (M:1)
+        |
+PRODUCT
+-------------------------
+Product_ID (PK)
+Product_Name
+Price
+Stock_Quantity
+Category_ID (FK)
+Supplier_ID (FK)
+      / \
+     /   \
+(M:1)     (M:1)
+   /         \
+CATEGORY    SUPPLIER
+---------   ----------------------
+Category_ID Supplier_ID (PK)
+Category_Name Supplier_Name
+Description  Contact_Information
+
+ORDERS
+   |
+   | (1:1)
+   |
+PAYMENT
+-------------------------
+Payment_ID (PK)
+Order_ID (FK)
+Payment_Method
+Payment_Date
+Payment_Status
+
+ORDERS
+   |
+   | (1:1)
+   |
+SHIPMENT
+-------------------------
+Shipment_ID (PK)
+Order_ID (FK)
+Delivery_Address
+Shipment_Date
+Delivery_Status
+
+CUSTOMER
+   |
+   | Writes (1:M)
+   |
+REVIEW
+-------------------------
+Review_ID (PK)
+Customer_ID (FK)
+Product_ID (FK)
+Rating
+Comments
+   |
+   | Reviews (M:1)
+   |
+PRODUCT
