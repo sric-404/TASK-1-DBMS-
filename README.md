@@ -107,7 +107,7 @@ Many-to-Many Relationships
 |---------|--------|-------------|
 | Orders | Product | Order_Details |
 
-8. Primary keys:
+8. Attributes and Primary keys:
 
 Customer
 ---------
@@ -179,96 +179,4 @@ Product_ID (FK)
 Rating
 Comments
 
-9. Attributes:
 
-CUSTOMER
--------------------------
-Customer_ID (PK)
-Name
-Email
-Mobile_Number
-Address
-Registration_Date
-        |
-        | Places
-        | (1:M)
-        |
-ORDERS
--------------------------
-Order_ID (PK)
-Order_Date
-Total_Amount
-Order_Status
-Customer_ID (FK)
-        |
-        | Contains
-        | (1:M)
-        |
-ORDER_DETAILS
--------------------------
-Order_Detail_ID (PK)
-Order_ID (FK)
-Product_ID (FK)
-Quantity
-Unit_Price
-        |
-        | References
-        | (M:1)
-        |
-PRODUCT
--------------------------
-Product_ID (PK)
-Product_Name
-Price
-Stock_Quantity
-Category_ID (FK)
-Supplier_ID (FK)
-      / \
-     /   \
-(M:1)     (M:1)
-   /         \
-CATEGORY    SUPPLIER
----------   ----------------------
-Category_ID Supplier_ID (PK)
-Category_Name Supplier_Name
-Description  Contact_Information
-
-ORDERS
-   |
-   | (1:1)
-   |
-PAYMENT
--------------------------
-Payment_ID (PK)
-Order_ID (FK)
-Payment_Method
-Payment_Date
-Payment_Status
-
-ORDERS
-   |
-   | (1:1)
-   |
-SHIPMENT
--------------------------
-Shipment_ID (PK)
-Order_ID (FK)
-Delivery_Address
-Shipment_Date
-Delivery_Status
-
-CUSTOMER
-   |
-   | Writes (1:M)
-   |
-REVIEW
--------------------------
-Review_ID (PK)
-Customer_ID (FK)
-Product_ID (FK)
-Rating
-Comments
-   |
-   | Reviews (M:1)
-   |
-PRODUCT
