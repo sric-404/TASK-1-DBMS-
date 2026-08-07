@@ -9,11 +9,15 @@ Analyze the business requirements of the E-Commerce Order Management System and 
 
 Deliverables:
 
-Requirement Analysis Report (SRS)
-Customer Entity
-Customer Attributes
-ER Diagram (Customer)
-Relational Schema
+->Requirement Analysis Report (SRS)
+
+->Customer Entity
+
+->Customer Attributes
+
+->ER Diagram (Customer)
+
+->Relational Schema
 
 Customer Table:
 
@@ -27,13 +31,21 @@ Customer Table:
 | Registration_Date | DATE | |
 
 Schema:
+
 CUSTOMER(
+
 Customer_ID PK,
+
 Name,
+
 Email,
+
 Mobile_Number,
+
 Address,
+
 Registration_Date
+
 )
 
 Task - II
