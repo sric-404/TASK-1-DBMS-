@@ -4,11 +4,11 @@ Task - I
 Requirement Analysis and Customer Database Module
 
 Objective:
-
+```
 Analyze the business requirements of the E-Commerce Order Management System and design the Customer module.
-
+```
 Deliverables:
-
+```
 ->Requirement Analysis Report (SRS)
 
 ->Customer Entity
@@ -18,7 +18,7 @@ Deliverables:
 ->ER Diagram (Customer)
 
 ->Relational Schema
-
+```
 Customer Table:
 
 | Attribute | Data Type | Key |
@@ -31,32 +31,25 @@ Customer Table:
 | Registration_Date | DATE | |
 
 Schema:
-
+```
 CUSTOMER(
-
 Customer_ID PK,
-
 Name,
-
 Email,
-
 Mobile_Number,
-
 Address,
-
 Registration_Date
-
 )
-
+```
 
 Task - II
 
 Product and Category Management System
 
 Objective:
-
+```
 Design Product and Category tables.
-
+```
 Tables:
 
 CATEGORY
@@ -87,15 +80,12 @@ Category (1)
 Product (*)
 ```
 Operations:
-
+```
 ->Insert Product
-
 ->Update Product
-
 ->Delete Product
-
 ->Category-wise Product Report
-
+```
 
 Task - III
 
@@ -124,25 +114,27 @@ Stock_Quantity
 Supplier_ID
 ```
 Relationship:
-
+```
 Supplier (1)
       |
       | 1:M
       |
 Product (*)
-
+```
 Inventory Status
+```
 Available:
 Stock_Quantity > 0
 
 Unavailable:
 Stock_Quantity = 0
-
+```
 Reports:
-
+```
 ->Available Products
 ->Out-of-Stock Products
 ->Supplier Product List
+```
 
 Task - IV
 
@@ -171,7 +163,7 @@ ORDER_DETAILS
 | Unit_Price | DECIMAL(10,2) | |
 
 Relationships
-
+```
 Customer (1)
       |
       | 1:M
@@ -189,15 +181,17 @@ Product (1)
       | 1:M
       |
 Order_Details (*)
+```
 
 Operations:
+```
 ->Insert Orders
 ->Modify Orders
 ->Customer Order History
 ->Order Details Report
-
+```
 Final Tables:
-
+```
 CUSTOMER
 CATEGORY
 SUPPLIER
@@ -207,4 +201,4 @@ ORDER_DETAILS
 PAYMENT
 SHIPMENT
 REVIEW
-
+```
