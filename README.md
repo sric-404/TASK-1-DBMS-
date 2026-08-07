@@ -1,182 +1,192 @@
-# TASK-1-DBMS-
-Week 1–3
-Requirement Analysis
-Project Title
-E-Commerce Order Management Database System
+# TASK-DBMS-
+Task - I
 
-1. Introduction:
-The E-Commerce Order Management Database System is designed to support the daily operations of an online shopping platform similar to Amazon. The system manages customer information, product catalog, suppliers, inventory, orders, payments, shipments, and customer reviews. It provides a centralized database that ensures efficient data storage, retrieval, and management while maintaining data integrity and minimizing redundancy.
+Requirement Analysis and Customer Database Module
 
-2. Problem Statement:
-Traditional methods of managing customer orders, inventory, and payments using spreadsheets or manual records are inefficient and prone to errors. As the number of customers and products increases, it becomes difficult to maintain accurate records and generate reports.
-The proposed database system addresses these issues by providing a structured and reliable database that automates business operations and improves data consistency.
+Objective:
 
-3. Objectives:
-The objectives of the project are:
-To maintain customer information securely.
-To organize products into categories.
-To manage supplier information.
-To track product inventory.
-To process customer orders.
-To record payment transactions.
-To manage shipment details.
-To store customer reviews and ratings.
-To generate sales and business reports.
+Analyze the business requirements of the E-Commerce Order Management System and design the Customer module.
 
-4. Business Requirements:
-The system should support the following operations:
-Customer Management
-Register new customers.
-Store customer details.
-Maintain customer profiles.
-Product Management
-Store product information.
-Categorize products.
-Track product stock.
-Update product prices.
-Supplier Management
-Maintain supplier details.
-Associate suppliers with products.
-Order Management
-Place customer orders.
-Maintain order history.
-Store order details.
-Update order status.
-Payment Management
-Record payment details.
-Maintain payment status.
-Support multiple payment methods.
-Shipment Management
-Record shipment details.
-Track delivery status.
-Maintain delivery addresses.
-Review Management
-Store customer ratings.
-Store customer comments.
-Reporting
-Generate monthly sales reports.
-Generate category-wise sales reports.
-Generate customer purchase history.
-Generate product-wise revenue reports.
+Deliverables:
 
-5. Scope of the System:
-The system includes the following modules:
-Customer Management
-Category Management
-Product Management
-Supplier Management
-Order Management
-Payment Management
-Shipment Management
-Review Management
-Business Reporting
+Requirement Analysis Report (SRS)
+Customer Entity
+Customer Attributes
+ER Diagram (Customer)
+Relational Schema
 
-6. Entity Identification:
-   
-| Entity | Primary Key | Important Attributes |
-|---------|-------------|----------------------|
-| Customer | Customer_ID | Name, Email, Mobile_Number, Address, Registration_Date |
-| Category | Category_ID | Category_Name, Description |
-| Product | Product_ID | Product_Name, Price, Stock_Quantity |
-| Supplier | Supplier_ID | Supplier_Name, Contact_Information |
-| Orders | Order_ID | Customer_ID, Order_Date, Total_Amount, Order_Status |
-| Order_Details | Order_Detail_ID | Order_ID, Product_ID, Quantity, Unit_Price |
-| Payment | Payment_ID | Order_ID, Payment_Method, Payment_Date, Payment_Status |
-| Shipment | Shipment_ID | Order_ID, Delivery_Address, Shipment_Date, Delivery_Status |
-| Review | Review_ID | Customer_ID, Product_ID, Rating, Comments |
+Customer Table:
 
-7. Relationship Identification
-One-to-One Relationships
-| Entity | Entity |
-|---------|--------|
-| Orders | Payment |
-| Orders | Shipment |
+| Attribute | Data Type | Key |
+|-----------|-----------|-----|
+| Customer_ID | INT | PK |
+| Name | VARCHAR(100) | |
+| Email | VARCHAR(100) | Unique |
+| Mobile_Number | VARCHAR(15) | |
+| Address | VARCHAR(255) | |
+| Registration_Date | DATE | |
 
-One-to-Many Relationships
-| Parent | Child |
-|---------|-------|
-| Customer | Orders |
-| Category | Product |
-| Supplier | Product |
-| Orders | Order_Details |
-| Customer | Review |
-| Product | Review |
-
-Many-to-Many Relationships
-| Entity | Entity | Resolved By |
-|---------|--------|-------------|
-| Orders | Product | Order_Details |
-
-8. Attributes and Primary keys:
-
-Customer
----------
-Customer_ID (PK)
-Name
-Email
-Mobile_Number
-Address
+Schema:
+CUSTOMER(
+Customer_ID PK,
+Name,
+Email,
+Mobile_Number,
+Address,
 Registration_Date
+)
 
-Orders
----------
-Order_ID (PK)
-Customer_ID (FK)
-Order_Date
-Total_Amount
-Order_Status
+Task - II
 
-Order_Details
---------------
-Order_Detail_ID (PK)
-Order_ID (FK)
-Product_ID (FK)
-Quantity
-Unit_Price
+Product and Category Management System
 
-Product
----------
-Product_ID (PK)
+Objective:
+
+Design Product and Category tables.
+
+Tables
+
+CATEGORY
+
+| Attribute | Data Type | Key |
+|-----------|-----------|-----|
+| Category_ID | INT | PK |
+| Category_Name | VARCHAR(100) | |
+| Description | VARCHAR(255) | |
+
+PRODUCT
+
+| Attribute | Data Type | Key |
+|-----------|-----------|-----|
+| Product_ID | INT | PK |
+| Product_Name | VARCHAR(100) | |
+| Price | DECIMAL(10,2) | |
+| Stock_Quantity | INT | |
+| Category_ID | INT | FK |
+| Supplier_ID | INT | FK |
+
+Relationship:
+
+Category (1)
+      |
+      | 1:M
+      |
+Product (*)
+
+Operations:
+
+Insert Product
+Update Product
+Delete Product
+Category-wise Product Report
+
+Task - III
+
+Seller and Inventory Management System
+
+This project uses Supplier instead of Seller.
+Inventory is managed using Stock_Quantity in Product.
+
+Tables:
+
+SUPPLIER
+
+| Attribute | Data Type | Key |
+|-----------|-----------|-----|
+| Supplier_ID | INT | PK |
+| Supplier_Name | VARCHAR(100) | |
+| Contact_Information | VARCHAR(255) | |
+
+PRODUCT
+
+Product_ID
 Product_Name
 Price
 Stock_Quantity
-Category_ID (FK)
-Supplier_ID (FK)
+Supplier_ID
 
-Category
-----------
-Category_ID (PK)
-Category_Name
-Description
+Relationship:
 
-Supplier
-----------
-Supplier_ID (PK)
-Supplier_Name
-Contact_Information
+Supplier (1)
+      |
+      | 1:M
+      |
+Product (*)
 
-Payment
----------
-Payment_ID (PK)
-Order_ID (FK)
-Payment_Method
-Payment_Date
-Payment_Status
+Inventory Status
+Available:
+Stock_Quantity > 0
 
-Shipment
-----------
-Shipment_ID (PK)
-Order_ID (FK)
-Delivery_Address
-Shipment_Date
-Delivery_Status
+Unavailable:
+Stock_Quantity = 0
 
-Review
----------
-Review_ID (PK)
-Customer_ID (FK)
-Product_ID (FK)
-Rating
-Comments
+Reports:
 
+->Available Products
+->Out-of-Stock Products
+->Supplier Product List
+
+Task - IV
+
+Order Management System
+
+Tables:
+
+ORDERS
+
+| Attribute | Data Type | Key |
+|-----------|-----------|-----|
+| Order_ID | INT | PK |
+| Customer_ID | INT | FK |
+| Order_Date | DATE | |
+| Total_Amount | DECIMAL(10,2) | |
+| Order_Status | VARCHAR(20) | |
+
+ORDER_DETAILS
+
+| Attribute | Data Type | Key |
+|-----------|-----------|-----|
+| Order_Detail_ID | INT | PK |
+| Order_ID | INT | FK |
+| Product_ID | INT | FK |
+| Quantity | INT | |
+| Unit_Price | DECIMAL(10,2) | |
+
+Relationships
+
+Customer (1)
+      |
+      | 1:M
+      |
+Orders (*)
+
+Orders (1)
+      |
+      | 1:M
+      |
+Order_Details (*)
+
+Product (1)
+      |
+      | 1:M
+      |
+Order_Details (*)
+
+Operations:
+->Insert Orders
+->Modify Orders
+->Customer Order History
+->Order Details Report
+
+Final Tables:
+
+CUSTOMER
+CATEGORY
+SUPPLIER
+PRODUCT
+ORDERS
+ORDER_DETAILS
+PAYMENT
+SHIPMENT
+REVIEW
 
