@@ -48,6 +48,7 @@ Registration_Date
 
 )
 
+
 Task - II
 
 Product and Category Management System
@@ -56,7 +57,7 @@ Objective:
 
 Design Product and Category tables.
 
-Tables
+Tables:
 
 CATEGORY
 
@@ -78,13 +79,13 @@ PRODUCT
 | Supplier_ID | INT | FK |
 
 Relationship:
-
+```
 Category (1)
       |
       | 1:M
       |
 Product (*)
-
+```
 Operations:
 
 Insert Product
