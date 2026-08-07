@@ -88,16 +88,21 @@ Product (*)
 ```
 Operations:
 
-Insert Product
-Update Product
-Delete Product
-Category-wise Product Report
+->Insert Product
+
+->Update Product
+
+->Delete Product
+
+->Category-wise Product Report
+
 
 Task - III
 
 Seller and Inventory Management System
 
 This project uses Supplier instead of Seller.
+
 Inventory is managed using Stock_Quantity in Product.
 
 Tables:
@@ -111,13 +116,13 @@ SUPPLIER
 | Contact_Information | VARCHAR(255) | |
 
 PRODUCT
-
+```
 Product_ID
 Product_Name
 Price
 Stock_Quantity
 Supplier_ID
-
+```
 Relationship:
 
 Supplier (1)
