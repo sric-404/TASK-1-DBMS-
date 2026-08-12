@@ -202,3 +202,104 @@ PAYMENT
 SHIPMENT
 REVIEW
 ```
+
+Task V – Payment Transaction Management System
+
+1. Create Payment Table
+
+```
+CREATE TABLE Payment (
+    payment_id INT PRIMARY KEY AUTO_INCREMENT,
+    order_id INT NOT NULL,
+    payment_method VARCHAR(30) NOT NULL,
+    payment_date DATE NOT NULL,
+    payment_status VARCHAR(20) NOT NULL,
+    FOREIGN KEY (order_id)
+        REFERENCES Orders(order_id)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+    CHECK (payment_status IN ('Successful', 'Failed', 'Pending'))
+);
+```
+
+Attributes:
+```
+| Attribute | Data Type | Key |
+|---|---|---|
+| `payment_id` | INT | PK |
+| `order_id` | INT | FK |
+| `payment_method` | VARCHAR(30) | |
+| `payment_date` | DATE | |
+| `payment_status` | VARCHAR(20) | |
+```
+
+2. Relationship:
+
+```
+Orders (1) ─────────── (1) Payment
+```
+
+Note: One order only has one payment transaction.
+
+3. Basic Payment Queries
+
+Display all payments
+```
+SELECT * FROM Payment;
+```
+
+Successful transactions
+```
+SELECT *
+FROM Payment
+WHERE payment_status = 'Successful';
+```
+
+Failed transactions
+```
+SELECT *
+FROM Payment
+WHERE payment_status = 'Failed';
+```
+
+Pending transactions
+```
+SELECT *
+FROM Payment
+WHERE payment_status = 'Pending';
+```
+
+4. Analyze Payment Methods
+
+Count payments by method
+```
+SELECT payment_method, COUNT(*) AS total_transactions
+FROM Payment
+GROUP BY payment_method;
+```
+
+Count successful payments by method
+```
+SELECT payment_method, COUNT(*) AS successful_transactions
+FROM Payment
+WHERE payment_status = 'Successful'
+GROUP BY payment_method;
+```
+
+5. Payment Transaction Report
+
+```
+SELECT
+    p.payment_id,
+    p.order_id,
+    o.customer_id,
+    p.payment_method,
+    p.payment_date,
+    p.payment_status,
+    o.total_amount
+FROM Payment p
+JOIN Orders o
+ON p.order_id = o.order_id;
+```
+
+
