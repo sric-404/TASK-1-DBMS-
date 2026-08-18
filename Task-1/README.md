@@ -27,8 +27,4 @@ INSERT INTO Customer (name, email, phone, address) VALUES
 SELECT * FROM Customer;
 ```
 
-## Screenshots to upload
 
-1. Requirement specification document
-2. Customer table creation
-3. Customer data after `SELECT * FROM Customer`
