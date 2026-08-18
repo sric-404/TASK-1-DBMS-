@@ -57,6 +57,3 @@ GROUP BY c.category_id, c.category_name
 ORDER BY c.category_name;
 ```
 
-## Screenshots included
-
-The existing images show the table results, update/delete operation, relationships, and category-wise report.
