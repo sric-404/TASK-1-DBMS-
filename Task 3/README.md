@@ -77,6 +77,3 @@ GROUP BY s.seller_id, s.seller_name
 ORDER BY s.seller_name;
 ```
 
-## Screenshots included
-
-The existing images provide evidence for table creation, seller-product maintenance, product availability, and inventory status reporting.
