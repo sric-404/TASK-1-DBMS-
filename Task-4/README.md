@@ -92,6 +92,4 @@ JOIN Product p ON od.product_id = p.product_id
 ORDER BY c.customer_id, o.order_date;
 ```
 
-## Screenshots included
 
-Existing screenshots show the Orders/Order_Details design and customer product orders. Add screenshots of the insertion/modification commands and the order-history report after executing them.
