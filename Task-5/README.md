@@ -104,12 +104,3 @@ JOIN Payment p
 ORDER BY p.payment_date, p.payment_id;
 ```
 
-## Screenshots to upload
-
-After running the commands in MySQL, add screenshots here showing:
-
-1. `CREATE TABLE Payment` and `SELECT * FROM Payment`
-2. Successful and failed payment transaction queries
-3. The failed-to-successful payment update
-4. Payment-mode analysis report
-5. Complete customer payment transaction report
