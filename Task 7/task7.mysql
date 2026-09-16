@@ -1,0 +1,85 @@
+SELECT * FROM Product;
+
+SELECT *
+FROM Product
+WHERE Price > 1000;
+
+SELECT *
+FROM Product
+ORDER BY Price DESC;
+
+SELECT DISTINCT CategoryID
+FROM Product;
+
+SELECT *
+FROM Product
+WHERE Price BETWEEN 500 AND 5000;
+
+SELECT *
+FROM Product
+WHERE CategoryID = 1;
+
+SELECT *
+FROM Product
+WHERE StockQuantity > 0;
+
+SELECT *
+FROM Product
+WHERE Price < 5000
+  AND CategoryID = 2
+  AND StockQuantity > 0;
+
+SELECT
+    p.ProductID,
+    p.ProductName,
+    p.Price,
+    p.StockQuantity,
+    c.CategoryName
+FROM Product p
+JOIN Category c
+    ON p.CategoryID = c.CategoryID;
+
+SELECT *
+FROM Product
+WHERE Price > 1000
+  AND StockQuantity >= 10;
+
+SELECT
+    c.CategoryName,
+    COUNT(p.ProductID) AS TotalProducts
+FROM Category c
+LEFT JOIN Product p
+    ON c.CategoryID = p.CategoryID
+GROUP BY c.CategoryID, c.CategoryName;
+
+SELECT
+    c.CategoryName,
+    ROUND(AVG(p.Price), 2) AS AveragePrice
+FROM Category c
+JOIN Product p
+    ON c.CategoryID = p.CategoryID
+GROUP BY c.CategoryID, c.CategoryName;
+
+SELECT
+    c.CategoryName,
+    SUM(p.StockQuantity) AS TotalStock
+FROM Category c
+JOIN Product p
+    ON c.CategoryID = p.CategoryID
+GROUP BY c.CategoryID, c.CategoryName;
+
+SELECT
+    ProductName,
+    Price
+FROM Product
+ORDER BY Price DESC
+LIMIT 5;
+
+SELECT
+    ProductID,
+    ProductName,
+    StockQuantity
+FROM Product
+WHERE StockQuantity < 10
+ORDER BY StockQuantity ASC;
+
