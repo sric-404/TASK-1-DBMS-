@@ -16,8 +16,6 @@ This task demonstrates:
 
 ## MySQL commands
 
-The complete executable SQL is available in [`task7.mysql`](./task7.mysql).
-
 ### 1. SELECT, WHERE, ORDER BY and DISTINCT
 
 ```sql
