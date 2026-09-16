@@ -12,8 +12,6 @@ This task demonstrates:
 4. Filtering using multiple conditions.
 5. Basic business reports using joins and aggregate functions.
 
-> Run the earlier tasks first because this task uses the existing `Customer`, `Category`, `Product`, `Orders`, and `Order_Details` tables.
-
 ## MySQL commands
 
 ### 1. SELECT, WHERE, ORDER BY and DISTINCT
