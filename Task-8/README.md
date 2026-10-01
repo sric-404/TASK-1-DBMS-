@@ -8,7 +8,6 @@ Analyze the relationships in the existing E-Commerce Order Management Database u
 
 `Orders` → `Payment`
 
-> Run Tasks I, II, IV, and V first. In the `Payment` table, the payment type column is `payment_mode`.
 
 ## MySQL commands
 
