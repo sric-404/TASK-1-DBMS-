@@ -51,11 +51,11 @@ CREATE USER IF NOT EXISTS 'order_staff'@'localhost'
 IDENTIFIED BY 'ReplaceWithAnotherStrongPassword';
 
 GRANT SELECT, INSERT, UPDATE
-ON ecommerce_db.Orders
+ON sri.Orders
 TO 'order_staff'@'localhost';
 
 GRANT SELECT, INSERT, UPDATE
-ON ecommerce_db.Order_Details
+ON sri.Order_Details
 TO 'order_staff'@'localhost';
 
 SHOW GRANTS FOR 'order_staff'@'localhost';
